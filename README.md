@@ -1,6 +1,6 @@
 # João Victor
 
-Desenvolvedor em formação focado em **web** e **automação**.
+Desenvolvedor em formação focado em **web** e **automação**. Buscando oportunidades **remotas**.
 
 ## Stack
 
@@ -13,10 +13,8 @@ Desenvolvedor em formação focado em **web** e **automação**.
 
 ## Em destaque
 
-- [portfolio](https://github.com/ben10informatica/portfolio) — hub de projetos de currículo
-- [projetos-principais](https://github.com/ben10informatica/projetos-principais) — apps do dia a dia
-- [crie-com-voz-flask](https://github.com/ben10informatica/crie-com-voz-flask) — sites por comando de voz
-- [servicos.github.io](https://github.com/ben10informatica/servicos.github.io) — site no GitHub Pages
+- [portfolio](https://github.com/ben10informatica/portfolio) — hub de projetos
+- [curriculo](https://github.com/ben10informatica/curriculo) — currículo e materiais
 
 ## Stats
 
@@ -25,4 +23,4 @@ Desenvolvedor em formação focado em **web** e **automação**.
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben10informatica&layout=compact&theme=transparent&hide_border=true" height="140" alt="langs" />
 </div>
 
-Aberto a oportunidades e colaboração.
+Aberto a oportunidades remotas e colaboração.
