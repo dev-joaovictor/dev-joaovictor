@@ -13,14 +13,14 @@ Desenvolvedor em formação focado em **web** e **automação**. Buscando oportu
 
 ## Em destaque
 
-- [portfolio](https://github.com/ben10informatica/portfolio) — hub de projetos
-- [curriculo](https://github.com/ben10informatica/curriculo) — currículo e materiais
+- [portfolio](https://github.com/dev-joaovictor/portfolio) — hub de projetos
+- [curriculo](https://github.com/dev-joaovictor/curriculo) — currículo e materiais
 
 ## Stats
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ben10informatica&show_icons=true&theme=transparent&hide_border=true&locale=pt-br" height="140" alt="stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben10informatica&layout=compact&theme=transparent&hide_border=true" height="140" alt="langs" />
+  <img src="https://github-readme-stats.vercel.app/api?username=dev-joaovictor&show_icons=true&theme=transparent&hide_border=true&locale=pt-br" height="140" alt="stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dev-joaovictor&layout=compact&theme=transparent&hide_border=true" height="140" alt="langs" />
 </div>
 
 Aberto a oportunidades remotas e colaboração.
