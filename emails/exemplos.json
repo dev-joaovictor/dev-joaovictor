@@ -1,0 +1,10 @@
+[
+  {"id": "1", "from": "alerts@mixrank.com", "subject": "Weekly MixRank report", "snippet": "Seu relatorio semanal"},
+  {"id": "2", "from": "jobs@hirefeed.io", "subject": "Hire Feed: 3 novas vagas remotas", "snippet": "Backend Python"},
+  {"id": "3", "from": "noreply@promocoes.com", "subject": "PROMO: 50% de desconto hoje! unsubscribe", "snippet": "Aproveite"},
+  {"id": "4", "from": "recrutador@techx.com", "subject": "Oportunidade: vaga de Python Developer (remoto)", "snippet": "Temos uma vaga"},
+  {"id": "5", "from": "erick.carlos@gmail.com", "subject": "Combinamos aquilo?", "snippet": "Fala Joao"},
+  {"id": "6", "from": "no-reply@accounts.google.com", "subject": "Alerta de seguranca: novo login", "snippet": "Detectamos"},
+  {"id": "7", "from": "cliente@empresa.com", "subject": "Duvida sobre o projeto", "snippet": "Pode me ajudar?"},
+  {"id": "8", "from": "news@medium.com", "subject": "Your Daily Digest newsletter", "snippet": "Top stories"}
+]

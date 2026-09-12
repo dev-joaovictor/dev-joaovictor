@@ -1,0 +1,9 @@
+{
+  "_comentario": "Fila de videos curtos. status: ideia | roteiro | gravado | aprovado | postado",
+  "conta_tiktok": "@joaovictor1639",
+  "videos": [
+    {"id": 1, "tema": "3 extensoes do VS Code que todo dev deveria usar", "status": "ideia"},
+    {"id": 2, "tema": "Kit MagSafe: vale a pena? (review rapido)", "status": "ideia"},
+    {"id": 3, "tema": "Como consegui minha primeira vaga remota", "status": "ideia"}
+  ]
+}

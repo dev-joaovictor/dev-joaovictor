@@ -1,0 +1,34 @@
+{
+  "_comentario": "Regras de triagem. Comparacao e feita em minusculas no remetente + assunto.",
+  "manter_visivel": [
+    "mixrank",
+    "hire feed",
+    "erick carlos",
+    "erick.carlos",
+    "alerta de seguranca",
+    "security alert",
+    "verificacao de seguranca"
+  ],
+  "vaga_keywords": [
+    "vaga",
+    "job",
+    "oportunidade",
+    "hiring",
+    "recruit",
+    "entrevista",
+    "position",
+    "opening"
+  ],
+  "ruido_keywords": [
+    "newsletter",
+    "unsubscribe",
+    "cancelar inscricao",
+    "no-reply",
+    "noreply",
+    "promo",
+    "desconto",
+    "sale",
+    "novidades",
+    "marketing"
+  ]
+}

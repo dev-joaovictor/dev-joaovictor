@@ -1,0 +1,32 @@
+{
+  "_comentario": "Catalogo de produtos. Preencha custo_fornecedor e link_fornecedor com dados reais.",
+  "produtos": [
+    {
+      "sku": "MAG-KIT-13",
+      "nome": "Kit MagSafe iPhone 13",
+      "modelo": "iPhone 13",
+      "custo_fornecedor": 0.0,
+      "link_fornecedor": "",
+      "margem_alvo": null,
+      "ativo": true
+    },
+    {
+      "sku": "MAG-KIT-14",
+      "nome": "Kit MagSafe iPhone 14",
+      "modelo": "iPhone 14",
+      "custo_fornecedor": 0.0,
+      "link_fornecedor": "",
+      "margem_alvo": null,
+      "ativo": true
+    },
+    {
+      "sku": "MAG-KIT-15",
+      "nome": "Kit MagSafe iPhone 15",
+      "modelo": "iPhone 15",
+      "custo_fornecedor": 0.0,
+      "link_fornecedor": "",
+      "margem_alvo": null,
+      "ativo": true
+    }
+  ]
+}

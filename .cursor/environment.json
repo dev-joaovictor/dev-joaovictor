@@ -1,0 +1,4 @@
+{
+  "name": "Empresa de Agentes do Joao Victor",
+  "install": "pip install -r requirements.txt"
+}
