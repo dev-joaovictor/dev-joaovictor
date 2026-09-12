@@ -17,7 +17,8 @@ Exemplos:
   gerente codigo relatorio
   gerente conteudo agenda --por-semana 3 --semanas 2
   gerente emails triagem --demo
-  gerente comercio precificar
+  gerente comercio fornecedor --sku MAG-KIT-14
+  gerente divulgacao rodar
 """
 from __future__ import annotations
 
@@ -32,8 +33,9 @@ BOTS = {
     "codigo": ("codigo/codigo.py", "PRs, CI, reviews e status de merge"),
     "conteudo": ("conteudo/conteudo.py", "roteiros, fila e agenda de posts"),
     "carreira": ("carreira/carreira.py", "vagas remotas e placar de candidaturas"),
-    "comercio": ("comercio/comercio.py", "catalogo, precificacao e relatorio"),
+    "comercio": ("comercio/comercio.py", "catalogo, precificacao, fornecedor e relatorio"),
     "emails": ("emails/triagem.py", "triagem do Gmail e rascunhos"),
+    "divulgacao": ("automation/github_to_linkedin.py", "GitHub -> LinkedIn (dry-run sem token)"),
     "web": ("common/web.py", "busca e acesso a internet (buscar / fetch)"),
 }
 

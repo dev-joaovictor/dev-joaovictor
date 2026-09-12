@@ -2,6 +2,9 @@
 
 Desenvolvedor em formação focado em **web** e **automação**. Buscando oportunidades **remotas**.
 
+> Empresa de Agentes (substitui o antigo Grok Bot): ver [`AGENTES.md`](./AGENTES.md).
+> Entrada: `python gerente/gerente.py bots`
+
 ## Stack
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)

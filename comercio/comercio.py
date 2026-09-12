@@ -6,6 +6,7 @@ Faz as partes deterministicas e GRATUITAS do trabalho do bot Comercio:
   - lucro      : dado um preco de venda, mostra lucro e margem
   - relatorio  : resumo "modo economia" (resultado + bloqueios)
   - brief      : gera o pedido de criativo para o time de Conteudo
+  - fornecedor : busca na internet candidatos a fornecedor (nao compra sozinho)
 
 Nao publica na Shopee/TikTok nem gasta dinheiro: isso continua manual, com o
 "ok" explicito do Joao, exatamente como a regra do bot.
@@ -14,9 +15,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
+sys.path.insert(0, str(BASE.parent))
+try:
+    from common import web as web_util
+except ImportError:  # pragma: no cover
+    web_util = None
+
 CONFIG_PATH = BASE / "config.json"
 CATALOGO_PATH = BASE / "catalogo.json"
 
@@ -168,6 +176,51 @@ def cmd_brief(args, config, catalogo) -> int:
     return 0
 
 
+def cmd_fornecedor(args, config, catalogo) -> int:
+    """Busca candidatos a fornecedor na internet. Nao compra nem preenche sozinho."""
+    if web_util is None:
+        print("[bloqueio] common/web.py ausente — nao da para buscar fornecedores.")
+        return 2
+
+    alvo = None
+    if args.sku:
+        mapa = {p["sku"].lower(): p for p in produtos_ativos(catalogo)}
+        alvo = mapa.get(args.sku.lower())
+        if not alvo:
+            print(f"SKU '{args.sku}' nao encontrado no catalogo.")
+            return 1
+
+    termo = args.termo
+    if not termo:
+        modelo = alvo["modelo"] if alvo else "iPhone MagSafe"
+        termo = f"kit MagSafe {modelo} atacado fornecedor dropshipping"
+
+    print("== Busca de fornecedores (modo economia) ==\n")
+    if alvo:
+        print(f"SKU    : {alvo['sku']} ({alvo['nome']})")
+    print(f"Busca  : {termo}\n")
+
+    resultados = web_util.buscar(termo, limite=args.limite)
+    if not resultados:
+        print("[bloqueio] nenhum resultado. Tente outro termo.")
+        return 2
+
+    print("CANDIDATOS (revise manualmente antes de comprar):\n")
+    for i, r in enumerate(resultados, 1):
+        print(f"{i}. {r['titulo']}")
+        print(f"   {r['url']}")
+        if r.get("resumo"):
+            print(f"   {r['resumo']}")
+        print()
+
+    print("Proximo passo (manual, com OK do Joao):")
+    print("  1. Abra o link, confira custo/frete/MOQ.")
+    print("  2. Preencha custo_fornecedor e link_fornecedor em comercio/catalogo.json.")
+    print("  3. Rode: python comercio/comercio.py precificar")
+    print("\nNada foi comprado nem alterado automaticamente.")
+    return 0
+
+
 # --------------------------------------------------------------------------- #
 def main() -> int:
     parser = argparse.ArgumentParser(description="Toolkit do assistente de Comercio")
@@ -184,6 +237,14 @@ def main() -> int:
     pb = sub.add_parser("brief", help="gera brief de criativo para o Conteudo")
     pb.add_argument("sku", help="SKU do produto (ex.: MAG-KIT-14)")
 
+    pf = sub.add_parser(
+        "fornecedor",
+        help="busca na internet candidatos a fornecedor (nao compra sozinho)",
+    )
+    pf.add_argument("--sku", help="SKU do catalogo para montar a busca (ex.: MAG-KIT-14)")
+    pf.add_argument("--termo", help="termo livre de busca (sobrescreve o padrao)")
+    pf.add_argument("--limite", type=int, default=6, help="quantos resultados mostrar")
+
     args = parser.parse_args()
     config = carregar_json(CONFIG_PATH)
     catalogo = carregar_json(CATALOGO_PATH)
@@ -193,6 +254,7 @@ def main() -> int:
         "lucro": cmd_lucro,
         "relatorio": cmd_relatorio,
         "brief": cmd_brief,
+        "fornecedor": cmd_fornecedor,
     }
     return comandos[args.cmd](args, config, catalogo)
 

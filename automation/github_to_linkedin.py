@@ -265,4 +265,11 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    # Aceita "rodar"/"run" como verbo no-op para o Gerente:
+    #   python gerente/gerente.py divulgacao rodar
+    argv = sys.argv[1:]
+    if argv and argv[0] in {"rodar", "run", "dry-run"}:
+        argv = argv[1:]
+    if argv:
+        print(f"[aviso] argumentos ignorados: {' '.join(argv)}", file=sys.stderr)
     raise SystemExit(main())

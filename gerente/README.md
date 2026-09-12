@@ -1,7 +1,6 @@
 # Gerente geral (enxuto)
 
-Coordena os bots **Código, Conteúdo, Carreira, Comércio e E-mails** a partir de um
-único ponto de entrada.
+Coordena os bots da Empresa de Agentes a partir de um único ponto de entrada.
 
 ## Princípio: economia de crédito
 
@@ -12,15 +11,15 @@ Coordena os bots **Código, Conteúdo, Carreira, Comércio e E-mails** a partir 
 ## Uso
 
 ```bash
-# Ver os bots e o que cada um faz (e se estão presentes no repo)
 python gerente/gerente.py bots
 
-# Acordar SÓ um bot, sob demanda, repassando o comando dele
 python gerente/gerente.py carreira placar
 python gerente/gerente.py codigo relatorio
 python gerente/gerente.py conteudo agenda --por-semana 3 --semanas 2
 python gerente/gerente.py emails triagem --demo
-python gerente/gerente.py comercio precificar
+python gerente/gerente.py comercio fornecedor --sku MAG-KIT-14
+python gerente/gerente.py divulgacao rodar
+python gerente/gerente.py web buscar "kit magsafe fornecedor"
 ```
 
 O Gerente apenas **repassa** o comando para o bot certo e mostra a saída dele
@@ -33,13 +32,12 @@ O Gerente apenas **repassa** o comando para o bot certo e mostra a saída dele
 | `codigo` | `codigo/codigo.py` | PRs, CI, reviews e status de merge |
 | `conteudo` | `conteudo/conteudo.py` | roteiros, fila e agenda de posts |
 | `carreira` | `carreira/carreira.py` | vagas remotas e placar de candidaturas |
-| `comercio` | `comercio/comercio.py` | catálogo, precificação e relatório |
+| `comercio` | `comercio/comercio.py` | catálogo, precificação, fornecedor e relatório |
 | `emails` | `emails/triagem.py` | triagem do Gmail e rascunhos |
+| `divulgacao` | `automation/github_to_linkedin.py` | GitHub → LinkedIn (dry-run sem token) |
+| `web` | `common/web.py` | busca e leitura de páginas |
 
 ## Importante
 
-Cada bot vive em seu próprio diretório (e foi entregue em um PR separado). O
-Gerente só consegue acordar um bot se o diretório dele estiver presente no repo.
-Depois de fazer o **merge dos PRs dos bots** na `main`, o Gerente coordena todos.
-Enquanto um bot estiver ausente, `gerente bots` mostra o status `AUSENTE` e o
-comando retorna um bloqueio claro.
+O Gerente só consegue acordar um bot se o script dele existir no repo. Se estiver
+ausente, `gerente bots` mostra `AUSENTE` e o comando retorna bloqueio claro.
