@@ -1,0 +1,11 @@
+{
+  "_comentario": "CONFIRA as taxas atuais da Shopee antes de vender. Estes valores sao editaveis.",
+  "moeda": "BRL",
+  "shopee": {
+    "comissao_pct": 0.14,
+    "taxa_fixa_por_item": 4.00,
+    "taxa_maxima": 100.00
+  },
+  "margem_alvo_padrao": 0.30,
+  "frete_extra_padrao": 0.00
+}
