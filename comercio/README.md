@@ -28,6 +28,10 @@ python comercio/comercio.py relatorio
 
 # Brief de criativo para mandar ao time de Conteúdo
 python comercio/comercio.py brief MAG-KIT-14
+
+# Busca candidatos a fornecedor na internet (não compra sozinho)
+python comercio/comercio.py fornecedor --sku MAG-KIT-14
+python comercio/comercio.py fornecedor --termo "kit magsafe atacado aliexpress"
 ```
 
 ## Como a precificação funciona
@@ -45,7 +49,8 @@ taxa fixa por item da Shopee.
 > (`comissao_pct`, `taxa_fixa_por_item`). Elas mudam com o tempo e por programa
 > (ex.: Programa de Frete Grátis).
 
-## Sem dependências extras
+## Dependências
 
-Usa só a biblioteca padrão do Python 3 — não precisa instalar nada e não consome
-créditos de IA nem do Cursor.
+- Biblioteca padrão do Python 3 para precificação/relatório/brief.
+- `requests` (via `common/web.py`) só para o comando `fornecedor`.
+  Instale com `pip install -r requirements.txt` na raiz do repo.

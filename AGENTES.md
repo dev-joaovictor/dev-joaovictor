@@ -18,9 +18,9 @@ são scripts em Python + APIs oficiais + GitHub Actions.
 | **Código** | `codigo/` | PRs, CI, reviews e status de merge (GitHub API) |
 | **Conteúdo** | `conteudo/` | Roteiros 30–60s, fila de vídeos e agenda de posts |
 | **Carreira** | `carreira/` | Vagas remotas + placar de candidaturas |
-| **Comércio** | `comercio/` | Catálogo, precificação Shopee, relatório |
+| **Comércio** | `comercio/` | Catálogo, precificação Shopee, busca de fornecedor, relatório |
 | **E-mails** | `emails/` | Triagem do Gmail, rascunhos (nunca envia sozinho) |
-| **Divulgação** | `automation/` | GitHub → LinkedIn (API oficial), agendado |
+| **Divulgação** | `automation/` | GitHub → LinkedIn (API oficial), agendado — via `gerente divulgacao rodar` |
 
 Utilitário compartilhado: `common/web.py` — dá a **todos os bots** acesso à
 internet (busca e leitura de páginas).
@@ -32,8 +32,9 @@ python gerente/gerente.py bots                       # lista os bots
 python gerente/gerente.py carreira vagas python --fonte web
 python gerente/gerente.py codigo relatorio
 python gerente/gerente.py conteudo agenda --por-semana 3 --semanas 2
-python gerente/gerente.py comercio precificar
+python gerente/gerente.py comercio fornecedor --sku MAG-KIT-14
 python gerente/gerente.py emails triagem --demo
+python gerente/gerente.py divulgacao rodar           # dry-run sem token LinkedIn
 python gerente/gerente.py web buscar "kit magsafe fornecedor"
 ```
 
