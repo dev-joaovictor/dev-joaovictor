@@ -34,6 +34,7 @@ BOTS = {
     "carreira": ("carreira/carreira.py", "vagas remotas e placar de candidaturas"),
     "comercio": ("comercio/comercio.py", "catalogo, precificacao e relatorio"),
     "emails": ("emails/triagem.py", "triagem do Gmail e rascunhos"),
+    "web": ("common/web.py", "busca e acesso a internet (buscar / fetch)"),
 }
 
 

@@ -1,0 +1,2 @@
+# Dependencias da Empresa de Agentes (todos os bots usam requests para internet)
+requests>=2.31,<3

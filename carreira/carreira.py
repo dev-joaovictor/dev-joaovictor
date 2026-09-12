@@ -17,12 +17,20 @@ from __future__ import annotations
 
 import argparse
 import csv
+import sys
 from datetime import date
 from pathlib import Path
 
 import requests
 
 BASE = Path(__file__).resolve().parent
+# Permite importar o utilitario de web compartilhado (common/web.py na raiz do repo)
+sys.path.insert(0, str(BASE.parent))
+try:
+    from common import web as web_util
+except ImportError:  # pragma: no cover - fallback se common/ nao existir
+    web_util = None
+
 CSV_PATH = BASE / "candidaturas.csv"
 CAMPOS = ["data", "empresa", "vaga", "link", "status"]
 REQUEST_TIMEOUT = 25
@@ -77,11 +85,31 @@ def buscar_remoteok(termo: str, limite: int) -> list[dict]:
     return vagas
 
 
+def buscar_web(termo: str, limite: int) -> list[dict]:
+    """Busca vagas direto na internet (via utilitario web compartilhado)."""
+    if web_util is None:
+        print("[aviso] common/web.py indisponivel; pulei a busca web.")
+        return []
+    vagas = []
+    for r in web_util.buscar(f"{termo} vaga remota", limite=limite):
+        vagas.append(
+            {
+                "fonte": "Web",
+                "vaga": r["titulo"],
+                "empresa": "(ver link)",
+                "local": "Remoto",
+                "link": r["url"],
+            }
+        )
+    return vagas
+
+
 def cmd_vagas(args) -> int:
     fontes = {
         "remotive": [buscar_remotive],
         "remoteok": [buscar_remoteok],
-        "todas": [buscar_remotive, buscar_remoteok],
+        "web": [buscar_web],
+        "todas": [buscar_remotive, buscar_remoteok, buscar_web],
     }[args.fonte]
 
     todas: list[dict] = []
@@ -170,7 +198,9 @@ def main() -> int:
     pv.add_argument("busca", help="termo de busca (ex.: python, react, dados)")
     pv.add_argument("--limite", type=int, default=10, help="max de vagas por fonte")
     pv.add_argument(
-        "--fonte", choices=["remotive", "remoteok", "todas"], default="remotive"
+        "--fonte",
+        choices=["remotive", "remoteok", "web", "todas"],
+        default="remotive",
     )
 
     pa = sub.add_parser("add", help="registra uma candidatura")
